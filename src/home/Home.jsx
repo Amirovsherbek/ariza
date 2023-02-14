@@ -1,6 +1,6 @@
 // import { useEffect } from "react"
 import './home.css'
-import { login } from "../image/image"
+import { home } from "../image/image"
 function Home(){
     // const baseurl='http://185.217.131.88:8080'
     // useEffect(()=>{
@@ -18,7 +18,7 @@ function Home(){
     return (
         <div className="Home">
              <div className="home-header">
-                <img src={login.logotip} alt={'logo'}/>
+                <img src={home.logotip} alt={'logo'}/>
              </div>
              <div className="home-body">
                 <div className="home-body-title ">
@@ -27,24 +27,54 @@ function Home(){
                 <div className="home-deraza text-center">
                    <img src='http://185.217.131.88:8080/attachment/open/1' alt={'deraza'}/>
                 </div>
-                <div className="home-title-2">
+                <div className="home-body-title-2 mt-2">
                     Shu turdagi romni bir 
                     kvadrat metrini narxini kiriting
                 </div>
-                <div className="home-body-form">
-                    <div className="home-body-form-box">
-                        <div>
-                           <img src="" alt="oq"/>
+                <div className="home-body-form mt-2 pt-1">
+                    <div className="home-body-form-box ">
+                        <div className="home-body-form-box-1">
+                           <img src={home.oq} alt="oq"/>
                            <span>Oq</span>
                         </div>
-                        <div>
-                            <input  />
+                        <div className="home-body-form-box-2">
+                            <input type={'text'} className={'form-control'} />
+                            <span>so'm</span>
+                        </div>
+                    </div>
+                    <div className="home-body-form-box ">
+                        <div className="home-body-form-box-1">
+                           <img src={home.malla} alt="oq"/>
+                           <span>Zal dub</span>
+                        </div>
+                        <div className="home-body-form-box-2">
+                            <input type={'text'} className={'form-control'} />
+                            <span>so'm</span>
+                        </div>
+                    </div>
+                    <div className="home-body-form-box ">
+                        <div className="home-body-form-box-1">
+                           <img src={home.mokko} alt="oq"/>
+                           <span>Mokko</span>
+                        </div>
+                        <div className="home-body-form-box-2">
+                            <input type={'text'} className={'form-control'} />
+                            <span>so'm</span>
+                        </div>
+                    </div>
+                    <div className="home-body-form-box ">
+                        <div className="home-body-form-box-1">
+                           <img src={home.temir} alt="oq"/>
+                           <span>Mokry</span>
+                        </div>
+                        <div className="home-body-form-box-2">
+                            <input type={'text'} className={'form-control'} />
                             <span>so'm</span>
                         </div>
                     </div>
                 </div>
              </div>
-             <div className="home-footer">
+             <div className="home-footer text-center mt-2">
                  <button className="btn btn-primary w-50 py-2">Keyingisi</button>
              </div>
         </div>

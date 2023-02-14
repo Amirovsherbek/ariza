@@ -6,7 +6,6 @@
 .home-header{
     width: 100%;
     height: 90px;
-    background-color: bisque;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -17,13 +16,11 @@
 }
 .home-body{
     width: 100%;
-    height: 400px;
-    
+    height: 600px;    
 }
 .home-body-title{
     width: 100%;
     height:40px;
-    background-color: red;
     font-family: 'DM Sans';
     font-style: normal;
     font-weight: 700;
@@ -33,28 +30,157 @@
 }
 .home-deraza{
     width: 100%;
-    height: 300px;
-    background-color: aqua;
+    height: 290px;
 }
 .home-deraza img{
-    width: 300px;
-    height: 300px;
+    width: 290px;
+    height: 290px;
 }
-
+.home-body-title-2{
+    width: 100%;
+    height: 45px;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    color: #009C22;
+}
+.home-body-form{
+    width: 100%;
+    height: 180px;
+}
+.home-body-form-box{
+    width: 100%;
+    height:40px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 8px 0px;
+}
+.home-body-form-box-1{
+    width: 40%;
+    height: 0px;
+}
+.home-body-form-box-1 img{
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    border: 1px solid #D2D2D2;
+    box-shadow: 0px 0px 36px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+.home-body-form-box-1 span{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #00304E;
+    margin-left: 10px;
+}
+.home-body-form-box-2{
+    width: 60%;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+}
+.home-body-form-box-2 input{
+    width: 70%;
+    height: 40px;
+    font-family: 'Nokora';
+    font-style: normal;
+    text-align: right;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 26px;
+    color: #005286;
+}
+.home-body-form-box-2 span{
+    width: 30%;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-family: 'Nokora';
+    font-style: normal;
+    font-weight: 700; 
+    font-size: 24px; 
+     color: #005286;
+}
 @media only screen and (max-width:475px) {
     .Home{
         width: 100%;
-        height: 92vh;
+        height: 90vh;
     }
     .home-header{
         height: 10%;
         margin-top: 0px;
     }
-    .home-body{
-        height: 85%;
+    .home-deraza{
+        height: 250px;
     }
+    .home-body-title-2{
+        height: px;
+        font-size: 18px;
+    }
+    .home-deraza img{
+        width: 250px;
+        height: 250px;
+    }
+    .home-body{
+        height: 83%;
+    }
+    .home-body-form{
+        height: 180px;
+    }
+    .home-body-form-box{
+        height:40px;
+        margin: 8px 0px;
+    }
+     
     .home-footer{
         width: 100%;
-        height: 5%;
+        height: 7%;
+    }
+}
+@media only screen and (max-width:390px){
+    .Home{
+        height: 95vh;
+    }
+    .home-header{
+        margin-top: 0px;
+        height: 8%;
+        align-items: flex-start;
+    }
+    .home-body-title{
+        font-size: 18px;
+    }
+    .home-header img{
+        margin-top: -10px;
+        margin-left: -20px;
+        transform: scale(0.7);
+    }
+    .home-body{
+       height:  80%;
+    }
+    .home-footer{
+        height: 10%;
+    }
+    .home-deraza{
+       height: 220px;       
+    }
+    .home-body-title-2{
+        font-size: 16px;
+    }
+    .home-deraza img{
+       width: 220px;
+       height: 220px;
+    }
+    .home-body-form{
+        height: 180px;
+    }
+    .home-body-form-box {
+        height: 40px;
+    }    
+    .home-body-form-box-2 input{
+        height: 40px;
     }
 }
