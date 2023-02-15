@@ -18,7 +18,7 @@ function Message(){
               </div>
               <div className="Login-footer dc-t">
                  <button style={{width:'150px'}}  className="btn btn-primary py-2" 
-                 ><NavLink to={'/home'} className={'link'}>
+                 ><NavLink to={'/'} className={'link'}>
                      Keyingisi
                  </NavLink></button>
               </div>

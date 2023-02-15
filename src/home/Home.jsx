@@ -1,8 +1,50 @@
+import { NavLink } from 'react-router-dom'
 // import { useEffect } from "react"
 import './home.css'
 import { home } from "../image/image"
+import { useState } from 'react'
 function Home(){
-    // const baseurl='http://185.217.131.88:8080'
+     const [countpage,setcountpage]=useState(1)
+    const  state=[
+        {
+            id:1,
+            content:<img src='http://185.217.131.88:8080/attachment/open/1' alt="rasm"/>
+        },
+        {
+            id:2,
+            content:<img src='http://185.217.131.88:8080/attachment/open/9' alt="rasm"/>
+        },
+        {
+            id:3,
+            content:<img src='http://185.217.131.88:8080/attachment/open/11' alt="rasm"/>
+        },
+        {
+            id:4,
+            content:<img src='http://185.217.131.88:8080/attachment/open/21' alt="rasm"/>
+        },
+        {
+            id:5,
+            content:<img src='http://185.217.131.88:8080/attachment/open/23' alt="rasm"/>
+        },
+        {
+            id:6,
+            content:<img src='http://185.217.131.88:8080/attachment/open/133' alt="rasm"/>
+            
+        },
+        {
+            id:7,
+            content:<div className='home-deraza-image text-center'>
+            <img  src={'http://185.217.131.88:8080/attachment/open/129'} alt={'deraza'}/>
+          <img  src={'http://185.217.131.88:8080/attachment/open/130'} alt={'deraza'}/>
+            </div>
+        },
+        {
+            id:8,
+            content:<img src='http://185.217.131.88:8080/attachment/open/134' alt="rasm"/>
+        },
+        
+    ]
+    const baseurl='http://185.217.131.88:8080'
     // useEffect(()=>{
     //  try{
     //     fetch(baseurl+'/newCom/edit',{
@@ -25,7 +67,11 @@ function Home(){
                   Akfa plast 6000 Quatro
                 </div>
                 <div className="home-deraza text-center">
-                   <img src='http://185.217.131.88:8080/attachment/open/1' alt={'deraza'}/>
+                  {
+                    state.map(item=>item.id===countpage ? <div key={item.id} style={{width:'100%',height:"100%"}}>
+                        {item.content}
+                    </div>:'')
+                  }
                 </div>
                 <div className="home-body-title-2 mt-2">
                     Shu turdagi romni bir 
@@ -75,7 +121,9 @@ function Home(){
                 </div>
              </div>
              <div className="home-footer text-center mt-2">
-                 <button className="btn btn-primary w-50 py-2">Keyingisi</button>
+                 <NavLink to={'/home/two'} 
+                 
+                  className="btn btn-primary link w-50 py-2">Keyingisi</NavLink>
              </div>
         </div>
     )
