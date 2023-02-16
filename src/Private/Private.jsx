@@ -1,7 +1,14 @@
+import { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 
 function PrivateRoute({ children }) {
-  const isAuthenticated = true;
+ const isAuthenticated=false
+  useEffect(()=>{
+    setTimeout(()=>{
+      return true
+    })
+  },[isAuthenticated])
+  console.log(isAuthenticated)
   if (!isAuthenticated) {
     return <Navigate to="/auth" />;
   }
