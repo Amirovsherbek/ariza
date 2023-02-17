@@ -3,7 +3,7 @@ import { home } from "../image/image"
 import {useState,useEffect} from 'react'
 function Six(){
     const [color,setColor]=useState(25)
-    const [state,setState                                                    ]=useState({
+    const [state,setState]=useState({
         ownerName: '',
         ownerPhone: '',
         city: '',
@@ -80,7 +80,11 @@ function Six(){
                 </div>
                 <div className="home-body-form-box-2">
                     <input type={'text'} className={'form-control'}
-                       />
+                     onChange={(e)=>{
+                        state.shelf15Oq=e.target.value;
+                        setState({...state})
+                     }}
+                     />
                     <span>so'm</span>
                 </div>
             </div>
@@ -91,7 +95,10 @@ function Six(){
                 </div>
                 <div className="home-body-form-box-2">
                     <input type={'text'} className={'form-control'}
-                      />
+                      onChange={(e)=>{
+                        state.shelf15Zal=e.target.value;
+                        setState({...state})
+                     }}/>
                     <span>so'm</span>
                 </div>
             </div>
@@ -102,7 +109,10 @@ function Six(){
                 </div>
                 <div className="home-body-form-box-2">
                     <input type={'text'} className={'form-control'} 
-      
+                       onChange={(e)=>{
+                        state.shelf15Mokko=e.target.value;
+                        setState({...state})
+                     }}
                     />
                     <span>so'm</span>
                 </div>
@@ -114,19 +124,375 @@ function Six(){
                 </div>
                 <div className="home-body-form-box-2">
                     <input type={'text'} className={'form-control'}
-      
-        />
+                   onChange={(e)=>{
+                    state.shelf15Mokry=e.target.value;
+                    setState({...state})
+                 }}  />
                     <span>so'm</span>
                 </div>
             </div>
         </div>
             },
-            {id:2,title:20},
-            {id:3,title:25},
-            {id:4,title:30},
-            {id:5,title:35},
-            {id:6,title:40},
-            {id:7,title:45},
+            {id:2,title:20,content:<div className="home-body-form mt-2 pt-1">
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.oq} alt="oq"/>
+                   <span>Oq</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                     onChange={(e)=>{
+                        state.shelf20Oq=e.target.value;
+                        setState({...state})
+                     }}
+                     />
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.malla} alt="oq"/>
+                   <span>Zal dub</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                      onChange={(e)=>{
+                        state.shelf20Zal=e.target.value;
+                        setState({...state})
+                     }}/>
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.mokko} alt="oq"/>
+                   <span>Mokko</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'} 
+                       onChange={(e)=>{
+                        state.shelf20Mokko=e.target.value;
+                        setState({...state})
+                     }}
+                    />
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.temir} alt="oq"/>
+                   <span>Mokry</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                   onChange={(e)=>{
+                    state.shelf20Mokry=e.target.value;
+                    setState({...state})
+                 }}  />
+                    <span>so'm</span>
+                </div>
+            </div>
+        </div>},
+            {id:3,title:25,content:<div className="home-body-form mt-2 pt-1">
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.oq} alt="oq"/>
+                   <span>Oq</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                     onChange={(e)=>{
+                        state.shelf25Oq=e.target.value;
+                        setState({...state})
+                     }}
+                     />
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.malla} alt="oq"/>
+                   <span>Zal dub</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                      onChange={(e)=>{
+                        state.shelf25Zal=e.target.value;
+                        setState({...state})
+                     }}/>
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.mokko} alt="oq"/>
+                   <span>Mokko</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'} 
+                       onChange={(e)=>{
+                        state.shelf25Mokko=e.target.value;
+                        setState({...state})
+                     }}
+                    />
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.temir} alt="oq"/>
+                   <span>Mokry</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                   onChange={(e)=>{
+                    state.shelf25Mokry=e.target.value;
+                    setState({...state})
+                 }}  />
+                    <span>so'm</span>
+                </div>
+            </div>
+        </div>  },
+            {id:4,title:30,content:<div className="home-body-form mt-2 pt-1">
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.oq} alt="oq"/>
+                   <span>Oq</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                     onChange={(e)=>{
+                        state.shelf30Oq=e.target.value;
+                        setState({...state})
+                     }}
+                     />
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.malla} alt="oq"/>
+                   <span>Zal dub</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                      onChange={(e)=>{
+                        state.shelf30Zal=e.target.value;
+                        setState({...state})
+                     }}/>
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.mokko} alt="oq"/>
+                   <span>Mokko</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'} 
+                       onChange={(e)=>{
+                        state.shelf30Mokko=e.target.value;
+                        setState({...state})
+                     }}
+                    />
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.temir} alt="oq"/>
+                   <span>Mokry</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                   onChange={(e)=>{
+                    state.shelf30Mokry=e.target.value;
+                    setState({...state})
+                 }}  />
+                    <span>so'm</span>
+                </div>
+            </div>
+        </div> },
+            {id:5,title:35,content: <div className="home-body-form mt-2 pt-1">
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.oq} alt="oq"/>
+                   <span>Oq</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                     onChange={(e)=>{
+                        state.shelf35Oq=e.target.value;
+                        setState({...state})
+                     }}
+                     />
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.malla} alt="oq"/>
+                   <span>Zal dub</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                      onChange={(e)=>{
+                        state.shelf35Zal=e.target.value;
+                        setState({...state})
+                     }}/>
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.mokko} alt="oq"/>
+                   <span>Mokko</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'} 
+                       onChange={(e)=>{
+                        state.shelf35Mokko=e.target.value;
+                        setState({...state})
+                     }}
+                    />
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.temir} alt="oq"/>
+                   <span>Mokry</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                   onChange={(e)=>{
+                    state.shelf35Mokry=e.target.value;
+                    setState({...state})
+                 }}  />
+                    <span>so'm</span>
+                </div>
+            </div>
+        </div>},
+            {id:6,title:40,content: <div className="home-body-form mt-2 pt-1">
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.oq} alt="oq"/>
+                   <span>Oq</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                     onChange={(e)=>{
+                        state.shelf40Oq=e.target.value;
+                        setState({...state})
+                     }}
+                     />
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.malla} alt="oq"/>
+                   <span>Zal dub</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                      onChange={(e)=>{
+                        state.shelf40Zal=e.target.value;
+                        setState({...state})
+                     }}/>
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.mokko} alt="oq"/>
+                   <span>Mokko</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'} 
+                       onChange={(e)=>{
+                        state.shelf40Mokko=e.target.value;
+                        setState({...state})
+                     }}
+                    />
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.temir} alt="oq"/>
+                   <span>Mokry</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                   onChange={(e)=>{
+                    state.shelf40Mokry=e.target.value;
+                    setState({...state})
+                 }}  />
+                    <span>so'm</span>
+                </div>
+            </div>
+        </div>},
+            {id:7,title:45,content:<div className="home-body-form mt-2 pt-1">
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.oq} alt="oq"/>
+                   <span>Oq</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                     onChange={(e)=>{
+                        state.shelf45Oq=e.target.value;
+                        setState({...state})
+                     }}
+                     />
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.malla} alt="oq"/>
+                   <span>Zal dub</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                      onChange={(e)=>{
+                        state.shelf45Zal=e.target.value;
+                        setState({...state})
+                     }}/>
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.mokko} alt="oq"/>
+                   <span>Mokko</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'} 
+                       onChange={(e)=>{
+                        state.shelf45Mokko=e.target.value;
+                        setState({...state})
+                     }}
+                    />
+                    <span>so'm</span>
+                </div>
+            </div>
+            <div className="home-body-form-box ">
+                <div className="home-body-form-box-1">
+                   <img src={home.temir} alt="oq"/>
+                   <span>Mokry</span>
+                </div>
+                <div className="home-body-form-box-2">
+                    <input type={'text'} className={'form-control'}
+                   onChange={(e)=>{
+                    state.shelf45Mokry=e.target.value;
+                    setState({...state})
+                 }}  />
+                    <span>so'm</span>
+                </div>
+            </div>
+        </div>},
         ]
         useEffect(()=>{
            localStorage.setItem('data',JSON.stringify(state))
@@ -161,63 +527,9 @@ function Six(){
            Tokcha (падакольник) narxlarini kiriting
            </div>
            <div className="home-body-form mt-2 pt-1">
-               <div className="home-body-form-box ">
-                   <div className="home-body-form-box-1">
-                      <img src={home.oq} alt="oq"/>
-                      <span>Oq</span>
-                   </div>
-                   <div className="home-body-form-box-2">
-                       <input type={'text'} className={'form-control'}
-                       onChange={(e)=>{
-                            state.category6Oq=e.target.value
-                            setState({...state})
-                        }} />
-                       <span>so'm</span>
-                   </div>
-               </div>
-               <div className="home-body-form-box ">
-                   <div className="home-body-form-box-1">
-                      <img src={home.malla} alt="oq"/>
-                      <span>Zal dub</span>
-                   </div>
-                   <div className="home-body-form-box-2">
-                       <input type={'text'} className={'form-control'}
-                       onChange={(e)=>{
-                            state.category6Zal=e.target.value
-                            setState({...state})
-                        }} />
-                       <span>so'm</span>
-                   </div>
-               </div>
-               <div className="home-body-form-box ">
-                   <div className="home-body-form-box-1">
-                      <img src={home.mokko} alt="oq"/>
-                      <span>Mokko</span>
-                   </div>
-                   <div className="home-body-form-box-2">
-                       <input type={'text'} className={'form-control'} 
-                        onChange={(e)=>{
-                            state.category6Mokko=e.target.value
-                            setState({...state})
-                        }}
-                       />
-                       <span>so'm</span>
-                   </div>
-               </div>
-               <div className="home-body-form-box ">
-                   <div className="home-body-form-box-1">
-                      <img src={home.temir} alt="oq"/>
-                      <span>Mokry</span>
-                   </div>
-                   <div className="home-body-form-box-2">
-                       <input type={'text'} className={'form-control'}
-                       onChange={(e)=>{
-                            state.category6Mokry=e.target.value
-                            setState({...state})
-                        }} />
-                       <span>so'm</span>
-                   </div>
-               </div>
+               {
+                shelfSize.map(item =>item.title===color ? item.content:'')
+               }
            </div>
         </div>
         <div className="home-footer text-center mt-2">

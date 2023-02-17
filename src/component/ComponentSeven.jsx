@@ -87,47 +87,20 @@ function Seven(){
             </div>
            </div>
            <div className="home-body-title-2 mt-2">
-               Shu turdagi romni bir 
-               kvadrat metrini narxini kiriting
+              Murakkab mexanizmli bo’lsa necha pul qo’shiladi
            </div>
            <div className="home-body-form mt-2 pt-1">
                <div className="home-body-form-box ">
                    <div className="home-body-form-box-1">
-                      <img src={home.oq} alt="oq"/>
-                      <span>Oq</span>
+                      <span id='mexaniz'>1 donasi </span>
                    </div>
                    <div className="home-body-form-box-2">
-                       <input type={'text'} className={'form-control'} />
-                       <span>so'm</span>
-                   </div>
-               </div>
-               <div className="home-body-form-box ">
-                   <div className="home-body-form-box-1">
-                      <img src={home.malla} alt="oq"/>
-                      <span>Zal dub</span>
-                   </div>
-                   <div className="home-body-form-box-2">
-                       <input type={'text'} className={'form-control'} />
-                       <span>so'm</span>
-                   </div>
-               </div>
-               <div className="home-body-form-box ">
-                   <div className="home-body-form-box-1">
-                      <img src={home.mokko} alt="oq"/>
-                      <span>Mokko</span>
-                   </div>
-                   <div className="home-body-form-box-2">
-                       <input type={'text'} className={'form-control'} />
-                       <span>so'm</span>
-                   </div>
-               </div>
-               <div className="home-body-form-box ">
-                   <div className="home-body-form-box-1">
-                      <img src={home.temir} alt="oq"/>
-                      <span>Mokry</span>
-                   </div>
-                   <div className="home-body-form-box-2">
-                       <input type={'text'} className={'form-control'} />
+                       <input type={'text'} className={'form-control'} 
+                         onChange={(e)=>{
+                            state.mexanizmPrice=e.target.value;
+                            setState({...state})
+                         }}
+                       />
                        <span>so'm</span>
                    </div>
                </div>
