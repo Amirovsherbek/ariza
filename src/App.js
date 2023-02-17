@@ -21,7 +21,6 @@ function App  (){
     <Routes>
        <Route element={<Layout/>}>
        <Route path='/' element={<PrivateRoute><Home/></PrivateRoute>}></Route>,
-       <Route path="/auth" element={<Login/>} ></Route>    
        <Route path='/home/one' element={<PrivateRoute><One/></PrivateRoute>}></Route>
        <Route path='/home/Two' element={<PrivateRoute><Two/></PrivateRoute>}></Route>
        <Route path='/home/Three' element={<PrivateRoute><Three/></PrivateRoute>}></Route>
@@ -30,8 +29,12 @@ function App  (){
        <Route path='/home/six' element={<PrivateRoute><Six/></PrivateRoute>}></Route>
        <Route path='/home/seven' element={<PrivateRoute><Seven/></PrivateRoute>}></Route>
        <Route path='/home/eight' element={<PrivateRoute><Eight/></PrivateRoute>}></Route>
-       <Route path="/auth/sms" element={<PrivateRoute><Message/></PrivateRoute>}></Route>
-       <Route path="/SiginUp" element={<PrivateRoute><SiginUp/></PrivateRoute>}></Route>
+
+       
+       <Route path="/auth" element={<Login/>} ></Route>    
+       <Route path="/SiginUp" element={<SiginUp/>}></Route>
+       <Route path="/auth/sms" element={<Message/>}></Route>
+
        </Route>
     </Routes>
    </>

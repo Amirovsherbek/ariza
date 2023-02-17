@@ -1,18 +1,10 @@
-import { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 
 function PrivateRoute({ children }) {
- const isAuthenticated=false
-  useEffect(()=>{
-    setTimeout(()=>{
-      return true
-    })
-  },[isAuthenticated])
-  console.log(isAuthenticated)
-  if (!isAuthenticated) {
+   let checkout=localStorage.getItem('checkout')
+  if (!true) {
     return <Navigate to="/auth" />;
   }
- 
   return children;
 }
 

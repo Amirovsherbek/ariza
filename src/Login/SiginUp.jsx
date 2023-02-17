@@ -9,15 +9,79 @@ function SiginUp(){
         token:'',
         generateNumber:0
      })
-    const [phoneNumber,setPhoneNumber]=useState(0)
-    const [success,setSuccess]=useState(false)
+    const [phoneNumber,setPhoneNumber]=useState("+998934111205")
     const [loading,setLoading]=useState(true)
     const [region,setRegion]=useState("Toshkent")
-    console.log(phoneNumber)
+    const [data,setData]=useState({
+      ownerName: '',
+      ownerPhone: '',
+      city: '',
+      region:'',
+      category1Oq: '',
+      category1Zal: '',
+      category1Mokko: '',
+      category1Mokry: '',
+  
+      category3Oq: '',
+      category3Zal: '',
+      category3Mokko: '',
+      category3Mokry: '',
+      
+      category2Oq: '',
+      category2Zal: '',
+      category2Mokko: '',
+      category2Mokry: '',
+      
+      category5Oq: '',
+      category5Zal: '',
+      category5Mokko: '',
+      category5Mokry: '',
+      
+      category4Oq: '',
+      category4Zal: '',
+      category4Mokko: '',
+      category4Mokry: '',
+      
+      shelf15Oq: '',
+      shelf20Oq: '',
+      shelf25Oq: '',
+      shelf30Oq: '',
+      shelf35Oq: '',
+      shelf40Oq: '',
+      shelf45Oq: '',
+      
+      shelf15Zal: '',
+      shelf20Zal: '',
+      shelf25Zal: '',
+      shelf30Zal: '',
+      shelf35Zal: '',
+      shelf40Zal: '',
+      shelf45Zal: '',
+      
+      shelf15Mokko: '',
+      shelf20Mokko: '',
+      shelf25Mokko: '',
+      shelf30Mokko: '',
+      shelf35Mokko: '',
+      shelf40Mokko: '',
+      shelf45Mokko: '',
+      
+      shelf15Mokry: '',
+      shelf20Mokry: '',
+      shelf25Mokry: '',
+      shelf30Mokry: '',
+      shelf35Mokry: '',
+      shelf40Mokry: '',
+      shelf45Mokry: '',
+      
+      mexanizmPrice: '',
+      
+      yodOynaPrice: ''
+      })
    const baseurl='http://185.217.131.88:8080'
    function checkedPhonenumber(){
     try{
-       fetch(baseurl+'/newCom/checkPhone',{
+       fetch('http://185.217.131.88:8080/newCom/checkPhone',{
           method:'POSt',
           headers:{
              'Content-Type':'application/json; charset=UTF-8',
@@ -34,13 +98,12 @@ function SiginUp(){
              NumberChecked()
           }
           NumberChecked()
-          setSuccess(prev=>prev=res.success)
           console.log(res.success)
          })
     }
-   catch (err){
-       console.log(err + '   -->>>> xatolik')
-   }
+    catch (err){
+        console.log(err + '   -->>>> xatolik')
+    }
 }
 function NumberChecked(){
  try{
@@ -82,7 +145,8 @@ function SMSpost(){
  }   
    useEffect(()=>{
       localStorage.setItem('token',false)
-   },[])
+      localStorage.setItem('data',JSON.stringify(data))
+   },[data])
     return(
         loading ? <div className="Login dc-t">
         <div className="Login-header">
@@ -93,12 +157,15 @@ function SMSpost(){
               <div>Kirish</div>
            </div>
            <div className="Login-number">
-              <div className=" bb">
+           
+            <div className=" bb">
+               
               <div className="dc-t">
                 <img src={login.uzbekistan} alt={'uzbekistan'}/>
                 <span> +998 </span>
               </div>
-              <div><input className="form-control w-100 h-100 "
+            <div>
+              <input className="form-control w-100 h-100 "
                onChange={(e)=>setPhoneNumber(parseInt(e.tar
                .value))}
               type={'text'} placeholder={' (90) 123 45 67 '}/>
@@ -106,7 +173,11 @@ function SMSpost(){
               </div>
              <div className="region ">
               <div>
-             <select name="viloyat" id="viloyat" required  onChange={(e)=>setRegion(e.target.value)}>
+             <select name="viloyat" id="viloyat" required  onChange={(e)=>{
+               setRegion(e.target.value)
+                data.city=e.target.value
+                setData({...data}) 
+              }}>
                 <option value="Toshkent">Toshkent shahri</option>
                 <option value="Toshkentviloyat">Toshkent viloyat</option>
                 <option value="Qashqadaryo">Qashqadaryo viloyat</option>
@@ -124,7 +195,10 @@ function SMSpost(){
              </select>
               </div>
               <div  className="text-right">
-             <select name="tuman" id="tuman"  required>
+             <select name="tuman" id="tuman"  required onChange={(e)=>{
+              data.region=e.target.value
+              setData({...data}) 
+             }}>
                {
                   regionData.map(item=>item.typeID===region ? <option key={item.id} value={item.value}>
                       {item.value}

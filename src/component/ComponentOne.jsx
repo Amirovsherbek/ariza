@@ -1,7 +1,76 @@
 import {NavLink,useParams} from 'react-router-dom'
 import { home } from "../image/image"
+import { useEffect, useState } from 'react';
 function One(){
+   const [state,setState                                                    ]=useState({
+    ownerName: '',
+    ownerPhone: '',
+    city: '',
+    region:'',
+    category1Oq: '',
+    category1Zal: '',
+    category1Mokko: '',
+    category1Mokry: '',
 
+    category3Oq: '',
+    category3Zal: '',
+    category3Mokko: '',
+    category3Mokry: '',
+    
+    category2Oq: '',
+    category2Zal: '',
+    category2Mokko: '',
+    category2Mokry: '',
+    
+    category5Oq: '',
+    category5Zal: '',
+    category5Mokko: '',
+    category5Mokry: '',
+    
+    category4Oq: '',
+    category4Zal: '',
+    category4Mokko: '',
+    category4Mokry: '',
+    
+    shelf15Oq: '',
+    shelf20Oq: '',
+    shelf25Oq: '',
+    shelf30Oq: '',
+    shelf35Oq: '',
+    shelf40Oq: '',
+    shelf45Oq: '',
+    
+    shelf15Zal: '',
+    shelf20Zal: '',
+    shelf25Zal: '',
+    shelf30Zal: '',
+    shelf35Zal: '',
+    shelf40Zal: '',
+    shelf45Zal: '',
+    
+    shelf15Mokko: '',
+    shelf20Mokko: '',
+    shelf25Mokko: '',
+    shelf30Mokko: '',
+    shelf35Mokko: '',
+    shelf40Mokko: '',
+    shelf45Mokko: '',
+    
+    shelf15Mokry: '',
+    shelf20Mokry: '',
+    shelf25Mokry: '',
+    shelf30Mokry: '',
+    shelf35Mokry: '',
+    shelf40Mokry: '',
+    shelf45Mokry: '',
+    
+    mexanizmPrice: '',
+    
+    yodOynaPrice: ''
+    })
+    useEffect(()=>{
+       localStorage.setItem('data',JSON.stringify(state))
+    },[state])
     return (
      <div className="Home">
         <div className="home-header">
@@ -25,7 +94,12 @@ function One(){
                       <span>Oq</span>
                    </div>
                    <div className="home-body-form-box-2">
-                       <input type={'text'} className={'form-control'} />
+                       <input type={'text'} className={'form-control'} 
+                        onChange={(e)=>{
+                            state.category1Oq=e.target.value
+                            setState({...state})
+                        }}
+                       />
                        <span>so'm</span>
                    </div>
                </div>
@@ -35,7 +109,12 @@ function One(){
                       <span>Zal dub</span>
                    </div>
                    <div className="home-body-form-box-2">
-                       <input type={'text'} className={'form-control'} />
+                       <input type={'text'} className={'form-control'} 
+                        onChange={(e)=>{
+                            state.category1Zal=e.target.value
+                            setState({...state})
+                        }}
+                       />
                        <span>so'm</span>
                    </div>
                </div>
@@ -45,7 +124,12 @@ function One(){
                       <span>Mokko</span>
                    </div>
                    <div className="home-body-form-box-2">
-                       <input type={'text'} className={'form-control'} />
+                       <input type={'text'} className={'form-control'} 
+                        onChange={(e)=>{
+                            state.category1Mokko=e.target.value
+                            setState({...state})
+                        }}
+                       />
                        <span>so'm</span>
                    </div>
                </div>
@@ -55,7 +139,12 @@ function One(){
                       <span>Mokry</span>
                    </div>
                    <div className="home-body-form-box-2">
-                       <input type={'text'} className={'form-control'} />
+                       <input type={'text'} className={'form-control'} 
+                        onChange={(e)=>{
+                            state.category1Mokry=e.target.value
+                            setState({...state})
+                        }}
+                       />
                        <span>so'm</span>
                    </div>
                </div>

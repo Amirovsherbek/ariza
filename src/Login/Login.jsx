@@ -8,14 +8,14 @@ function Login(){
       token:'',
       generateNumber:0
    })
-    const [phoneNumber,setPhoneNumber]=useState(934414556)
-    const [success,setSuccess]=useState(false)
+    const [phoneNumber,setPhoneNumber]=useState('+998934414556')
+    const [success,setSuccess]=useState('')
     const [loading,setLoading]=useState(true)
    const baseurl='http://185.217.131.88:8080'
 
    async function checkedPhoneNumber() {
       try {
-        const response = await fetch(`${baseurl}/newCom/checkPhone`, {
+        const response = await fetch("http://185.217.131.88:8080/newCom/checkPhone", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json; charset=UTF-8',
@@ -23,19 +23,21 @@ function Login(){
             'X-Requested-With': 'XMLHttpRequest',
           },
           body: JSON.stringify({
-            phoneNumber: phoneNumber,
+            phoneNumber:'+998934111205'
           }),
+          
         });
     
         if (response.status<500) {
           const data = await response.json();
-          if (!data.success) {
+          if (data.success) {
+            console.log('wokred')
             NumberChecked();
-            setSuccess(!data.success);
+            setSuccess(data.massage);
           }
-          else if(data.success){           
+          else {
              console.log(data);
-             setSuccess(data.success);
+             setSuccess(data.massage);
           }
         } else {
           const errorText = await response.text();
@@ -86,13 +88,15 @@ function Login(){
       }
    }
    useEffect(()=>{
-      localStorage.setItem('checkout',false)
+      localStorage.setItem('checkout','')
       setTimeout(()=>{
-         localStorage.setItem('checkout',true)
-       },300000)
-      localStorage.setItem('token',false)
+         localStorage.setItem('checkout','true')
+       },10000)
+      setTimeout(()=>{
+         localStorage.setItem('checkout','')
+      },30000)
    },[])
-  
+      console.log(success)
     return(
         loading ? <div className="Login dc-t">
         <div className="Login-header">
@@ -117,9 +121,9 @@ function Login(){
           </div>
         </div>
         <div className="Login-footer dc-t">
-        <NavLink to={success ? '/auth/sms':'/SiginUp'}
+        <NavLink tabIndex={-1} aria-disabled='true'  to={localStorage.getItem('registir')==="Register" ? '/SiginUp':'/auth/sms'}
         onClick={checkedPhoneNumber} 
-        style={{width:'150px'}} className="btn link btn-primary py-2" 
+        style={{width:'100%',height:"100%"}} className="btn px-5 link btn-primary py-2" 
            >
                Keyingisi
          </NavLink>

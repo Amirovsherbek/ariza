@@ -120,8 +120,9 @@
     letter-spacing: 0.5px; 
     color: #000000;
 }
+
 .link{
-    font-family: 'Poppins';
+     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
