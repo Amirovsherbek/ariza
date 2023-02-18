@@ -5,9 +5,11 @@ import malla from './malla.png'
 import mokko from './mokko.png'
 import temir from './temir.png'
 import shelf from './shelf.png'
+import Success from './Success.png'
 export const login={
     logotip:Logotip,
-    uzbekistan:uzbekistan
+    uzbekistan:uzbekistan,
+    success:Success
 }
 export const home={
     oq:oq,

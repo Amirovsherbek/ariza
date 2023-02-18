@@ -1,8 +1,8 @@
 import { Navigate } from "react-router-dom";
 
 function PrivateRoute({ children }) {
-   let checkout=localStorage.getItem('checkout')
-  if (!true) {
+   let checkout=localStorage.getItem('acces_token')
+  if (!checkout) {
     return <Navigate to="/auth" />;
   }
   return children;

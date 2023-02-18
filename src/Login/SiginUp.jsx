@@ -5,11 +5,12 @@ import Loading from "../Components/loading"
 import './Login.css'
 import { regionData } from '../region/regiondata';
 function SiginUp(){
-    const [auth,setAuth]=useState({
-        token:'',
-        generateNumber:0
-     })
-    const [phoneNumber,setPhoneNumber]=useState("+998934111205")
+   const [auth,setAuth]=useState({
+      token:'',
+      generateNumber:""
+   })
+    const [phoneNumber,setPhoneNumber]=useState("")
+    const [success,setSuccess]=useState('')
     const [loading,setLoading]=useState(true)
     const [region,setRegion]=useState("Toshkent")
     const [data,setData]=useState({
@@ -79,70 +80,58 @@ function SiginUp(){
       yodOynaPrice: ''
       })
    const baseurl='http://185.217.131.88:8080'
-   function checkedPhonenumber(){
-    try{
-       fetch('http://185.217.131.88:8080/newCom/checkPhone',{
-          method:'POSt',
-          headers:{
-             'Content-Type':'application/json; charset=UTF-8',
-            'Accept':'application/json',
-            'X-Requested-With':'XMLHttpRequest',
-            "Access-Control-Allow-Origin": "*",
-          },
-          body:JSON.stringify({
-             phoneNumber: phoneNumber
-             })
-         }).then(res=>res.json())
-         .then(res=>{
-          if(res.success){
-             NumberChecked()
-          }
-          NumberChecked()
-          console.log(res.success)
+   
+   async function NumberChecked(){
+      try{
+        await fetch(baseurl+'/sms/4343245366788986756/1')
+          .then((res)=>res.json())
+          .then(res=>{
+               if(res.success){    
+                  console.log(res)   
+                         
+                localStorage.setItem('acces_token',
+                JSON.stringify(res.object))
+                let x=res.number
+                   auth.generateNumber=x.toString()
+                   auth.token=res.object
+                   setAuth({...auth})
+                   localStorage.setItem('checkout',JSON.stringify(auth))
+                   SMSpost()
+               }
+            })  
+      }
+      catch(error){
+         console.log(error + "xatolik")
+      }
+   }
+   function SMSpost(){
+      console.log(auth)
+      console.log(typeof phoneNumber)
+      console.log( phoneNumber)
+      try{
+         fetch('http://notify.eskiz.uz/api/message/sms/send',{
+            method:"POST",
+            headers:{
+               'Content-Type':'application/json; charset=UTF-8',
+                 'Accept':'application/json',
+                 'X-Requested-With':'XMLHttpRequest',
+                 'Authorization': "Bearer "+auth.token
+            },
+            body:JSON.stringify({ 
+               "mobile_phone": "998"+phoneNumber, 
+               "message": "Romchi.uz: Tasdiqlash kodi - "+auth.generateNumber, 
+               "from": "4546", 
+               "callback_url": "http://0000.uz/test.php" 
+           })
          })
-    }
-    catch (err){
-        console.log(err + '   -->>>> xatolik')
-    }
-}
-function NumberChecked(){
- try{
-    fetch(baseurl+'/sms/4343245366788986756/1')
-     .then(res=>res.json())
-     .then(res=>{
-       if(res.success){
-         localStorage.setItem('token',res.massage)
-        auth.generateNumber=res.number
-        setAuth({...auth})
-         SMSpost()
-       }
-       console.log(res)
-     })
- }
- catch(error){
-    console.log(error + "xatolik")
- }
-}
-function SMSpost(){
-    try{
-       fetch('http://notify.eskiz.uz/api/message/sms/send',{
-          method:"POST",
-          headers:{
-             'Content-Type':'application/json; charset=UTF-8',
-               'Accept':'application/json',
-               'X-Requested-With':'XMLHttpRequest',
-               "Access-Control-Allow-Origin": "*",
-               'Authorization': 'Bearer '+localStorage.token
-          },
-          body:{
-             "generateNumber": auth.generateNumber
-          }
-       })
-    }
-    catch(err){
-       console.log(err)
-    }
- }   
+      }
+      catch(err){
+         console.log(err)
+      }
+   }
+   useEffect(()=>{
+      localStorage.setItem('checkout',JSON.stringify(auth))
+       },[auth])
    useEffect(()=>{
       localStorage.setItem('token',false)
       localStorage.setItem('data',JSON.stringify(data))
@@ -158,19 +147,28 @@ function SMSpost(){
            </div>
            <div className="Login-number">
            
-            <div className=" bb">
-               
-              <div className="dc-t">
+            <div className=" bb ">
+               <div className="dc-t bb-one">
+               <input style={{width:"80%"}} className="form-control w-70 h-90" 
+                  onChange={(e)=>{
+                     data.ownerName=e.target.value
+                     setData({...data})
+                  }}
+                  placeholder="ism"
+               />
+               </div>
+             
+             <div className="dc-t bb-two">
                 <img src={login.uzbekistan} alt={'uzbekistan'}/>
                 <span> +998 </span>
               </div>
-            <div>
+            <div className="number-row ">
               <input className="form-control w-100 h-100 "
-               onChange={(e)=>setPhoneNumber(parseInt(e.tar
-               .value))}
+               onChange={(e)=>setPhoneNumber(e.target.value)}
               type={'text'} placeholder={' (90) 123 45 67 '}/>
-              </div>
-              </div>
+            </div>
+            
+         </div>
              <div className="region ">
               <div>
              <select name="viloyat" id="viloyat" required  onChange={(e)=>{
@@ -210,14 +208,10 @@ function SMSpost(){
           </div>
         </div>
         <div className="Login-footer dc-t">
-        <button 
-        onClick={checkedPhonenumber} 
-        style={{width:'150px'}} className="btn btn-primary py-2" 
-           ><NavLink  to={'/auth/sms'} className={'link'}
-           onClick={checkedPhonenumber} 
+        <NavLink to={'/auth/sms'} onClick={NumberChecked}  className="btn xxx px-5 link btn-primary py-2" 
            >
                Keyingisi
-           </NavLink></button>
+         </NavLink>
         </div>
   </div>:<Loading/>
     )

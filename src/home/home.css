@@ -11,7 +11,7 @@
     align-items: flex-start;
 }
 .home-header img{
-    width:151px;
+    width:161px;
     height: 70px;
     transform: scale(0.8);
 }
@@ -122,8 +122,30 @@
     font-size: 24px; 
      color: #005286;
 }
-.link{
+.homet-body-title-2 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+    /* identical to box height, or 36px */
     
+    text-align: center;
+    letter-spacing: 0.5px;
+    
+    color: #016096;
+}
+
+.homes-body-title-2{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 180%;
+    text-align: center;
+    letter-spacing: 0.5px;
+    color: #223263;
+    opacity: 0.5;
 }
 .qalinligi{
     width: 80%;

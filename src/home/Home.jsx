@@ -72,6 +72,11 @@ function Home(){
         useEffect(()=>{
            localStorage.setItem('data',JSON.stringify(state))
         },[state])
+        useEffect(()=>{
+           setTimeout(()=>{
+                localStorage.removeItem('acces_token')
+           },60000000)
+        },[])
         return (
          <div className="Home">
             <div className="home-header">

@@ -14,6 +14,7 @@ import Home from './home/Home'
 import Message from './Login/message';
 import Layout from './Private/LayOut';
 import SiginUp from './Login/SiginUp';
+import Success from './component/success';
 function App  (){
 
   return (
@@ -29,6 +30,7 @@ function App  (){
        <Route path='/home/six' element={<PrivateRoute><Six/></PrivateRoute>}></Route>
        <Route path='/home/seven' element={<PrivateRoute><Seven/></PrivateRoute>}></Route>
        <Route path='/home/eight' element={<PrivateRoute><Eight/></PrivateRoute>}></Route>
+       <Route path='/home/success' element={<PrivateRoute><Success/></PrivateRoute>}></Route>
 
        
        <Route path="/auth" element={<Login/>} ></Route>    

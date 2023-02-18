@@ -123,8 +123,8 @@ function Eight  (){
            </div>
         </div>
         <div className="home-footer text-center mt-2">
-            <button   onClick={Submit}
-             className="btn btn-primary link w-50 py-2">Saqlash</button>
+            <NavLink to={'/home/success'}   onClick={Submit}
+             className="btn btn-primary link w-50 py-2">Saqlash</NavLink>
         </div>
     </div>
     )

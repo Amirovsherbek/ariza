@@ -2,66 +2,89 @@ import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 import { login } from "../image/image"
 import Loading from "../Components/loading"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Login.css'
 function Login(){
    const [auth,setAuth]=useState({
       token:'',
-      generateNumber:0
+      generateNumber:"",
    })
-    const [phoneNumber,setPhoneNumber]=useState('+998934414556')
+    const [phoneNumber,setPhoneNumber]=useState('')
     const [success,setSuccess]=useState('')
     const [loading,setLoading]=useState(true)
    const baseurl='http://185.217.131.88:8080'
-
+   const notify = () => toast.error(" Siz ro'yxatdan o'tishingiz lozim. Uning uchun Ro'yxatdan o'tish tugamasini bosing ", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
+      const notify2 = () => toast.error(" Iltimos! Raqamingizni kiriting kiriting ", {
+         position: "top-center",
+         autoClose: 5000,
+         hideProgressBar: false,
+         closeOnClick: true,
+         pauseOnHover: true,
+         draggable: true,
+         progress: undefined,
+         theme: "colored",
+         });
    async function checkedPhoneNumber() {
-      try {
-        const response = await fetch("http://185.217.131.88:8080/newCom/checkPhone", {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-            'Accept': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest',
-          },
-          body: JSON.stringify({
-            phoneNumber:'+998934111205'
-          }),
-          
-        });
-    
-        if (response.status<500) {
-          const data = await response.json();
-          if (data.success) {
-            console.log('wokred')
-            NumberChecked();
-            setSuccess(data.massage);
+      if(phoneNumber){
+         try {
+            const response = await fetch("http://185.217.131.88:8080/newCom/checkPhone", {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+                'Accept': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest',
+              },
+              body: JSON.stringify({
+                phoneNumber:'+998'+phoneNumber
+              }),
+            });
+            if (response.status<500) {
+              const data = await response.json();
+              if (data.success) {
+                NumberChecked();
+                setSuccess(data.massage);
+                
+              }
+              else {
+                 setSuccess(data.massage);
+                 notify()
+              }
+            } else {
+              const errorText = await response.text();
+              console.error(`HTTP error! Status: ${response.status}, Error: ${errorText}`);
+            }
+          } catch (error) {
+            console.error(`Error: ${error}`);
           }
-          else {
-             console.log(data);
-             setSuccess(data.massage);
-          }
-        } else {
-          const errorText = await response.text();
-          console.error(`HTTP error! Status: ${response.status}, Error: ${errorText}`);
-        }
-      } catch (error) {
-        console.error(`Error: ${error}`);
+      }
+      else {
+         notify2()
       }
     }
-    
-    
    async function NumberChecked(){
       try{
-        const res=await fetch(baseurl+'/sms/4343245366788986756/1')
-          if(res.status<500){
-            const data=res.json()
-              if(data.success){
-               localStorage.setItem('acces_token',res.object)
-                  auth.generateNumber=res.number
-                  setAuth({...auth})
-                  SMSpost()
-                console.log(res)
-              }
-          }
+        await fetch(baseurl+'/sms/4343245366788986756/1').then((res)=>res.json())
+            .then(res=>{
+               if(res.success){              
+                localStorage.setItem('acces_token',JSON.stringify(res.object))
+                let x=res.number
+                   auth.generateNumber=x.toString()
+                   auth.token=res.object
+                   setAuth({...auth})
+                   localStorage.setItem('checkout',JSON.stringify(auth))
+                   SMSpost()   
+               }
+            })  
       }
       catch(error){
          console.log(error + "xatolik")
@@ -75,45 +98,56 @@ function Login(){
                'Content-Type':'application/json; charset=UTF-8',
                  'Accept':'application/json',
                  'X-Requested-With':'XMLHttpRequest',
-                 "Access-Control-Allow-Origin": "*",
-                 'Authorization': 'Bearer '+localStorage.token
+                 'Authorization': "Bearer "+auth.token
             },
-            body:{
-               "generateNumber": auth.generateNumber
-            }
+            body:JSON.stringify({ 
+               mobile_phone: "998"+auth.number, 
+               "message": "Romchi.uz: Tasdiqlash kodi - "+auth.generateNumber, 
+               "from": "4546", 
+               "callback_url": "http://0000.uz/test.php" 
+           })
          })
       }
       catch(err){
          console.log(err)
       }
    }
-   useEffect(()=>{
-      localStorage.setItem('checkout','')
-      setTimeout(()=>{
-         localStorage.setItem('checkout','true')
-       },10000)
-      setTimeout(()=>{
-         localStorage.setItem('checkout','')
-      },30000)
-   },[])
-      console.log(success)
+   // useEffect(()=>{
+   //    localStorage.setItem('acces_token',auth.token)
+   //     },[auth])
     return(
         loading ? <div className="Login dc-t">
+        
         <div className="Login-header">
            <img src={login.logotip} alt={'logotip'}/>
         </div>
+        <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+             rtl={false}
+            pauseOnFocusLoss
+            draggable
+             pauseOnHover
+             theme="colored"
+             />
         <div className="Login-body ">
            <div className="login-title">
               <div>Kirish</div>
            </div>
            <div className="Login-number">
               <div className=" bb">
-              <div className="dc-t">
+              <div className="dc-t bb-two">
                 <img src={login.uzbekistan} alt={'uzbekistan'}/>
                 <span> +998 </span>
               </div>
-              <div><input className="form-control w-100 h-100 "
-               onChange={(e)=>setPhoneNumber(parseInt(e.target.value))}
+              <div className="number-row"><input className="form-control w-100 h-100 "
+               onChange={(e)=>{
+                 
+                  setPhoneNumber(parseInt(e.target.value))
+               }}
               type={'number'} placeholder={' (90) 123 45 67 '} />
               </div>
               </div>
@@ -121,12 +155,13 @@ function Login(){
           </div>
         </div>
         <div className="Login-footer dc-t">
-        <NavLink tabIndex={-1} aria-disabled='true'  to={localStorage.getItem('registir')==="Register" ? '/SiginUp':'/auth/sms'}
-        onClick={checkedPhoneNumber} 
-        style={{width:'100%',height:"100%"}} className="btn px-5 link btn-primary py-2" 
+        <button  onClick={checkedPhoneNumber}  className="btn  xxx px-5 link btn-primary py-2" 
            >
                Keyingisi
-         </NavLink>
+         </button>
+          <div className="w-100 text-center pt-2">
+          <span>Siz yangi bo'lsangiz. </span><NavLink to={'/SiginUp'}>Ro'yxatdan o'ting</NavLink>
+          </div>
         </div>
   </div>:<Loading/>
     )
