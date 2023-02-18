@@ -2,75 +2,73 @@ import {NavLink,useParams} from 'react-router-dom'
 import { home } from "../image/image"
 import { useEffect, useState } from 'react';
 function One(){
-   const [state,setState                                                    ]=useState({
+   const [state,setState]=useState({
     ownerName: '',
     ownerPhone: '',
     city: '',
     region:'',
-    category1Oq: '',
-    category1Zal: '',
-    category1Mokko: '',
-    category1Mokry: '',
+    category1Oq: 0,
+    category1Zal: 0,
+    category1Mokko: 0,
+    category1Mokry: 0,
 
-    category3Oq: '',
-    category3Zal: '',
-    category3Mokko: '',
-    category3Mokry: '',
+    category3Oq: 0,
+    category3Zal: 0,
+    category3Mokko: 0,
+    category3Mokry: 0,
     
-    category2Oq: '',
-    category2Zal: '',
-    category2Mokko: '',
-    category2Mokry: '',
+    category2Oq: 0,
+    category2Zal: 0,
+    category2Mokko: 0,
+    category2Mokry: 0,
     
-    category5Oq: '',
-    category5Zal: '',
-    category5Mokko: '',
-    category5Mokry: '',
+    category5Oq: 0,
+    category5Zal: 0,
+    category5Mokko: 0,
+    category5Mokry: 0,
     
-    category4Oq: '',
-    category4Zal: '',
-    category4Mokko: '',
-    category4Mokry: '',
+    category4Oq: 0,
+    category4Zal: 0,
+    category4Mokko: 0,
+    category4Mokry: 0,
     
-    shelf15Oq: '',
-    shelf20Oq: '',
-    shelf25Oq: '',
-    shelf30Oq: '',
-    shelf35Oq: '',
-    shelf40Oq: '',
-    shelf45Oq: '',
+    shelf15Oq: 0,
+    shelf20Oq: 0,
+    shelf25Oq: 0,
+    shelf30Oq: 0,
+    shelf35Oq: 0,
+    shelf40Oq: 0,
+    shelf45Oq: 0,
     
-    shelf15Zal: '',
-    shelf20Zal: '',
-    shelf25Zal: '',
-    shelf30Zal: '',
-    shelf35Zal: '',
-    shelf40Zal: '',
-    shelf45Zal: '',
+    shelf15Zal: 0,
+    shelf20Zal: 0,
+    shelf25Zal: 0,
+    shelf30Zal: 0,
+    shelf35Zal: 0,
+    shelf40Zal: 0,
+    shelf45Zal: 0,
     
-    shelf15Mokko: '',
-    shelf20Mokko: '',
-    shelf25Mokko: '',
-    shelf30Mokko: '',
-    shelf35Mokko: '',
-    shelf40Mokko: '',
-    shelf45Mokko: '',
+    shelf15Mokko: 0,
+    shelf20Mokko:0,
+    shelf25Mokko: 0,
+    shelf30Mokko: 0,
+    shelf35Mokko: 0,
+    shelf40Mokko: 0,
+    shelf45Mokko: 0,
     
-    shelf15Mokry: '',
-    shelf20Mokry: '',
-    shelf25Mokry: '',
-    shelf30Mokry: '',
-    shelf35Mokry: '',
-    shelf40Mokry: '',
-    shelf45Mokry: '',
+    shelf15Mokry: 0,
+    shelf20Mokry: 0,
+    shelf25Mokry: 0,
+    shelf30Mokry: 0,
+    shelf35Mokry: 0,
+    shelf40Mokry: 0,
+    shelf45Mokry: 0,
     
-    mexanizmPrice: '',
+    mexanizmPrice: 0,
     
-    yodOynaPrice: ''
+    yodOynaPrice: 0
     })
-    useEffect(()=>{
-       localStorage.setItem('data',JSON.stringify(state))
-    },[state])
+ 
     return (
      <div className="Home">
         <div className="home-header">
@@ -94,9 +92,9 @@ function One(){
                       <span>Oq</span>
                    </div>
                    <div className="home-body-form-box-2">
-                       <input type={'text'} className={'form-control'} 
+                       <input type={'number'} className={'form-control'} 
                         onChange={(e)=>{
-                            state.category1Oq=e.target.value
+                            state.category1Oq=parseInt(e.target.value)
                             setState({...state})
                         }}
                        />
@@ -109,9 +107,9 @@ function One(){
                       <span>Zal dub</span>
                    </div>
                    <div className="home-body-form-box-2">
-                       <input type={'text'} className={'form-control'} 
+                       <input type={'number'} className={'form-control'} 
                         onChange={(e)=>{
-                            state.category1Zal=e.target.value
+                            state.category1Zal=parseInt(e.target.value)
                             setState({...state})
                         }}
                        />
@@ -124,9 +122,9 @@ function One(){
                       <span>Mokko</span>
                    </div>
                    <div className="home-body-form-box-2">
-                       <input type={'text'} className={'form-control'} 
+                       <input type={'number'} className={'form-control'} 
                         onChange={(e)=>{
-                            state.category1Mokko=e.target.value
+                            state.category1Mokko=parseInt(e.target.value)
                             setState({...state})
                         }}
                        />
@@ -139,9 +137,9 @@ function One(){
                       <span>Mokry</span>
                    </div>
                    <div className="home-body-form-box-2">
-                       <input type={'text'} className={'form-control'} 
+                       <input type={'number'} className={'form-control'} 
                         onChange={(e)=>{
-                            state.category1Mokry=e.target.value
+                            state.category1Mokry=parseInt(e.target.value)
                             setState({...state})
                         }}
                        />

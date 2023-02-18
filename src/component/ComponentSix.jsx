@@ -8,66 +8,66 @@ function Six(){
         ownerPhone: '',
         city: '',
         region:'',
-        category1Oq: '',
-        category1Zal: '',
-        category1Mokko: '',
-        category1Mokry: '',
+        category1Oq: 0,
+        category1Zal: 0,
+        category1Mokko: 0,
+        category1Mokry: 0,
     
-        category3Oq: '',
-        category3Zal: '',
-        category3Mokko: '',
-        category3Mokry: '',
+        category3Oq: 0,
+        category3Zal: 0,
+        category3Mokko: 0,
+        category3Mokry: 0,
         
-        category2Oq: '',
-        category2Zal: '',
-        category2Mokko: '',
-        category2Mokry: '',
+        category2Oq: 0,
+        category2Zal: 0,
+        category2Mokko: 0,
+        category2Mokry: 0,
         
-        category5Oq: '',
-        category5Zal: '',
-        category5Mokko: '',
-        category5Mokry: '',
+        category5Oq: 0,
+        category5Zal: 0,
+        category5Mokko: 0,
+        category5Mokry: 0,
         
-        category4Oq: '',
-        category4Zal: '',
-        category4Mokko: '',
-        category4Mokry: '',
+        category4Oq: 0,
+        category4Zal: 0,
+        category4Mokko: 0,
+        category4Mokry: 0,
         
-        shelf15Oq: '',
-        shelf20Oq: '',
-        shelf25Oq: '',
-        shelf30Oq: '',
-        shelf35Oq: '',
-        shelf40Oq: '',
-        shelf45Oq: '',
+        shelf15Oq: 0,
+        shelf20Oq: 0,
+        shelf25Oq: 0,
+        shelf30Oq: 0,
+        shelf35Oq: 0,
+        shelf40Oq: 0,
+        shelf45Oq: 0,
         
-        shelf15Zal: '',
-        shelf20Zal: '',
-        shelf25Zal: '',
-        shelf30Zal: '',
-        shelf35Zal: '',
-        shelf40Zal: '',
-        shelf45Zal: '',
+        shelf15Zal: 0,
+        shelf20Zal: 0,
+        shelf25Zal: 0,
+        shelf30Zal: 0,
+        shelf35Zal: 0,
+        shelf40Zal: 0,
+        shelf45Zal: 0,
         
-        shelf15Mokko: '',
-        shelf20Mokko: '',
-        shelf25Mokko: '',
-        shelf30Mokko: '',
-        shelf35Mokko: '',
-        shelf40Mokko: '',
-        shelf45Mokko: '',
+        shelf15Mokko: 0,
+        shelf20Mokko:0,
+        shelf25Mokko: 0,
+        shelf30Mokko: 0,
+        shelf35Mokko: 0,
+        shelf40Mokko: 0,
+        shelf45Mokko: 0,
         
-        shelf15Mokry: '',
-        shelf20Mokry: '',
-        shelf25Mokry: '',
-        shelf30Mokry: '',
-        shelf35Mokry: '',
-        shelf40Mokry: '',
-        shelf45Mokry: '',
+        shelf15Mokry: 0,
+        shelf20Mokry: 0,
+        shelf25Mokry: 0,
+        shelf30Mokry: 0,
+        shelf35Mokry: 0,
+        shelf40Mokry: 0,
+        shelf45Mokry: 0,
         
-        mexanizmPrice: '',
+        mexanizmPrice: 0,
         
-        yodOynaPrice: ''
+        yodOynaPrice: 0
         })
         const shelfSize=[
             {id:1,typeID:1, 
@@ -79,9 +79,9 @@ function Six(){
                    <span>Oq</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                      onChange={(e)=>{
-                        state.shelf15Oq=e.target.value;
+                        state.shelf15Oq=parseInt(e.target.value);
                         setState({...state})
                      }}
                      />
@@ -94,9 +94,9 @@ function Six(){
                    <span>Zal dub</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                       onChange={(e)=>{
-                        state.shelf15Zal=e.target.value;
+                        state.shelf15Zal=parseInt(e.target.value);
                         setState({...state})
                      }}/>
                     <span>so'm</span>
@@ -108,9 +108,9 @@ function Six(){
                    <span>Mokko</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'} 
+                    <input type={'number'} className={'form-control'} 
                        onChange={(e)=>{
-                        state.shelf15Mokko=e.target.value;
+                        state.shelf15Mokko=parseInt(e.target.value);
                         setState({...state})
                      }}
                     />
@@ -123,9 +123,9 @@ function Six(){
                    <span>Mokry</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                    onChange={(e)=>{
-                    state.shelf15Mokry=e.target.value;
+                    state.shelf15Mokry=parseInt(e.target.value);
                     setState({...state})
                  }}  />
                     <span>so'm</span>
@@ -140,9 +140,9 @@ function Six(){
                    <span>Oq</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                      onChange={(e)=>{
-                        state.shelf20Oq=e.target.value;
+                        state.shelf20Oq=parseInt(e.target.value);
                         setState({...state})
                      }}
                      />
@@ -155,9 +155,9 @@ function Six(){
                    <span>Zal dub</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                       onChange={(e)=>{
-                        state.shelf20Zal=e.target.value;
+                        state.shelf20Zal=parseInt(e.target.value);
                         setState({...state})
                      }}/>
                     <span>so'm</span>
@@ -169,9 +169,9 @@ function Six(){
                    <span>Mokko</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'} 
+                    <input type={'number'} className={'form-control'} 
                        onChange={(e)=>{
-                        state.shelf20Mokko=e.target.value;
+                        state.shelf20Mokko=parseInt(e.target.value);
                         setState({...state})
                      }}
                     />
@@ -184,9 +184,9 @@ function Six(){
                    <span>Mokry</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                    onChange={(e)=>{
-                    state.shelf20Mokry=e.target.value;
+                    state.shelf20Mokry=parseInt(e.target.value);
                     setState({...state})
                  }}  />
                     <span>so'm</span>
@@ -200,9 +200,9 @@ function Six(){
                    <span>Oq</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                      onChange={(e)=>{
-                        state.shelf25Oq=e.target.value;
+                        state.shelf25Oq=parseInt(e.target.value);
                         setState({...state})
                      }}
                      />
@@ -215,9 +215,9 @@ function Six(){
                    <span>Zal dub</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                       onChange={(e)=>{
-                        state.shelf25Zal=e.target.value;
+                        state.shelf25Zal=parseInt(e.target.value);
                         setState({...state})
                      }}/>
                     <span>so'm</span>
@@ -229,9 +229,9 @@ function Six(){
                    <span>Mokko</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'} 
+                    <input type={'number'} className={'form-control'} 
                        onChange={(e)=>{
-                        state.shelf25Mokko=e.target.value;
+                        state.shelf25Mokko=parseInt(e.target.value);
                         setState({...state})
                      }}
                     />
@@ -244,9 +244,9 @@ function Six(){
                    <span>Mokry</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                    onChange={(e)=>{
-                    state.shelf25Mokry=e.target.value;
+                    state.shelf25Mokry=parseInt(e.target.value);
                     setState({...state})
                  }}  />
                     <span>so'm</span>
@@ -260,9 +260,9 @@ function Six(){
                    <span>Oq</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                      onChange={(e)=>{
-                        state.shelf30Oq=e.target.value;
+                        state.shelf30Oq=parseInt(e.target.value);
                         setState({...state})
                      }}
                      />
@@ -275,9 +275,9 @@ function Six(){
                    <span>Zal dub</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                       onChange={(e)=>{
-                        state.shelf30Zal=e.target.value;
+                        state.shelf30Zal=parseInt(e.target.value);
                         setState({...state})
                      }}/>
                     <span>so'm</span>
@@ -289,9 +289,9 @@ function Six(){
                    <span>Mokko</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'} 
+                    <input type={'number'} className={'form-control'} 
                        onChange={(e)=>{
-                        state.shelf30Mokko=e.target.value;
+                        state.shelf30Mokko=parseInt(e.target.value);
                         setState({...state})
                      }}
                     />
@@ -304,9 +304,9 @@ function Six(){
                    <span>Mokry</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                    onChange={(e)=>{
-                    state.shelf30Mokry=e.target.value;
+                    state.shelf30Mokry=parseInt(e.target.value);
                     setState({...state})
                  }}  />
                     <span>so'm</span>
@@ -320,9 +320,9 @@ function Six(){
                    <span>Oq</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                      onChange={(e)=>{
-                        state.shelf35Oq=e.target.value;
+                        state.shelf35Oq=parseInt(e.target.value);
                         setState({...state})
                      }}
                      />
@@ -335,9 +335,9 @@ function Six(){
                    <span>Zal dub</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                       onChange={(e)=>{
-                        state.shelf35Zal=e.target.value;
+                        state.shelf35Zal=parseInt(e.target.value);
                         setState({...state})
                      }}/>
                     <span>so'm</span>
@@ -349,9 +349,9 @@ function Six(){
                    <span>Mokko</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'} 
+                    <input type={'number'} className={'form-control'} 
                        onChange={(e)=>{
-                        state.shelf35Mokko=e.target.value;
+                        state.shelf35Mokko=parseInt(e.target.value);
                         setState({...state})
                      }}
                     />
@@ -364,9 +364,9 @@ function Six(){
                    <span>Mokry</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                    onChange={(e)=>{
-                    state.shelf35Mokry=e.target.value;
+                    state.shelf35Mokry=parseInt(e.target.value);
                     setState({...state})
                  }}  />
                     <span>so'm</span>
@@ -380,9 +380,9 @@ function Six(){
                    <span>Oq</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                      onChange={(e)=>{
-                        state.shelf40Oq=e.target.value;
+                        state.shelf40Oq=parseInt(e.target.value);
                         setState({...state})
                      }}
                      />
@@ -395,9 +395,9 @@ function Six(){
                    <span>Zal dub</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                       onChange={(e)=>{
-                        state.shelf40Zal=e.target.value;
+                        state.shelf40Zal=parseInt(e.target.value);
                         setState({...state})
                      }}/>
                     <span>so'm</span>
@@ -409,9 +409,9 @@ function Six(){
                    <span>Mokko</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'} 
+                    <input type={'number'} className={'form-control'} 
                        onChange={(e)=>{
-                        state.shelf40Mokko=e.target.value;
+                        state.shelf40Mokko=parseInt(e.target.value);
                         setState({...state})
                      }}
                     />
@@ -424,9 +424,9 @@ function Six(){
                    <span>Mokry</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                    onChange={(e)=>{
-                    state.shelf40Mokry=e.target.value;
+                    state.shelf40Mokry=parseInt(e.target.value);
                     setState({...state})
                  }}  />
                     <span>so'm</span>
@@ -440,9 +440,9 @@ function Six(){
                    <span>Oq</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                      onChange={(e)=>{
-                        state.shelf45Oq=e.target.value;
+                        state.shelf45Oq=parseInt(e.target.value);
                         setState({...state})
                      }}
                      />
@@ -455,9 +455,9 @@ function Six(){
                    <span>Zal dub</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'}
+                    <input type={'number'} className={'form-control'}
                       onChange={(e)=>{
-                        state.shelf45Zal=e.target.value;
+                        state.shelf45Zal=parseInt(e.target.value);
                         setState({...state})
                      }}/>
                     <span>so'm</span>
@@ -469,9 +469,9 @@ function Six(){
                    <span>Mokko</span>
                 </div>
                 <div className="home-body-form-box-2">
-                    <input type={'text'} className={'form-control'} 
+                    <input type={'number'} className={'form-control'} 
                        onChange={(e)=>{
-                        state.shelf45Mokko=e.target.value;
+                        state.shelf45Mokko=parseInt(e.target.value);
                         setState({...state})
                      }}
                     />
@@ -486,7 +486,7 @@ function Six(){
                 <div className="home-body-form-box-2">
                     <input type={'text'} className={'form-control'}
                    onChange={(e)=>{
-                    state.shelf45Mokry=e.target.value;
+                    state.shelf45Mokry=parseInt(e.target.value);
                     setState({...state})
                  }}  />
                     <span>so'm</span>
