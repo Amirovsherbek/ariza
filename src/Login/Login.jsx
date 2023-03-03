@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 import { login } from "../image/image"
-import Loading from "../Components/loading"
+import Loading from './../Components/loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Login.css'
@@ -10,9 +10,9 @@ function Login(){
       token:'',
       generateNumber:"",
    })
-    const [phoneNumber,setPhoneNumber]=useState('')
-    const [success,setSuccess]=useState('')
-    const [loading,setLoading]=useState(true)
+   const [phoneNumber,setPhoneNumber]=useState('')
+   const [success,setSuccess]=useState('')
+   const [loading,setLoading]=useState(true)
    const baseurl='http://185.217.131.88:8080'
    const notify = () => toast.error(" Siz ro'yxatdan o'tishingiz lozim. Uning uchun Ro'yxatdan o'tish tugamasini bosing ", {
       position: "top-right",
@@ -24,7 +24,7 @@ function Login(){
       progress: undefined,
       theme: "colored",
       });
-      const notify2 = () => toast.error(" Iltimos! Raqamingizni kiriting kiriting ", {
+   const notify2 = () => toast.error(" Iltimos! Raqamingizni kiriting kiriting ", {
          position: "top-center",
          autoClose: 5000,
          hideProgressBar: false,

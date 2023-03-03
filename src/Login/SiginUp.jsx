@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState,useContext } from "react"
 import { NavLink } from "react-router-dom"
 import { login } from "../image/image"
 import Loading from "../Components/loading"
 import './Login.css'
 import { regionData } from '../region/regiondata';
+import { UserContext } from "../App"
 function SiginUp(){
+   const {data,ChangaData,Save}=useContext(UserContext)
+  
    const [auth,setAuth]=useState({
       token:'',
       generateNumber:""
@@ -13,72 +16,7 @@ function SiginUp(){
     const [success,setSuccess]=useState('')
     const [loading,setLoading]=useState(true)
     const [region,setRegion]=useState("Toshkent")
-    const [data,setData]=useState({
-      ownerName: '',
-      ownerPhone: '',
-      city: '',
-      region:'',
-      category1Oq: '',
-      category1Zal: '',
-      category1Mokko: '',
-      category1Mokry: '',
-  
-      category3Oq: '',
-      category3Zal: '',
-      category3Mokko: '',
-      category3Mokry: '',
-      
-      category2Oq: '',
-      category2Zal: '',
-      category2Mokko: '',
-      category2Mokry: '',
-      
-      category5Oq: '',
-      category5Zal: '',
-      category5Mokko: '',
-      category5Mokry: '',
-      
-      category4Oq: '',
-      category4Zal: '',
-      category4Mokko: '',
-      category4Mokry: '',
-      
-      shelf15Oq: '',
-      shelf20Oq: '',
-      shelf25Oq: '',
-      shelf30Oq: '',
-      shelf35Oq: '',
-      shelf40Oq: '',
-      shelf45Oq: '',
-      
-      shelf15Zal: '',
-      shelf20Zal: '',
-      shelf25Zal: '',
-      shelf30Zal: '',
-      shelf35Zal: '',
-      shelf40Zal: '',
-      shelf45Zal: '',
-      
-      shelf15Mokko: '',
-      shelf20Mokko: '',
-      shelf25Mokko: '',
-      shelf30Mokko: '',
-      shelf35Mokko: '',
-      shelf40Mokko: '',
-      shelf45Mokko: '',
-      
-      shelf15Mokry: '',
-      shelf20Mokry: '',
-      shelf25Mokry: '',
-      shelf30Mokry: '',
-      shelf35Mokry: '',
-      shelf40Mokry: '',
-      shelf45Mokry: '',
-      
-      mexanizmPrice: '',
-      
-      yodOynaPrice: ''
-      })
+   
    const baseurl='http://185.217.131.88:8080'
    
    async function NumberChecked(){
@@ -132,10 +70,7 @@ function SiginUp(){
    useEffect(()=>{
       localStorage.setItem('checkout',JSON.stringify(auth))
        },[auth])
-   useEffect(()=>{
-      localStorage.setItem('token',false)
-      localStorage.setItem('data',JSON.stringify(data))
-   },[data])
+ 
     return(
         loading ? <div className="Login dc-t">
         <div className="Login-header">
@@ -150,10 +85,7 @@ function SiginUp(){
             <div className=" bb ">
                <div className="dc-t bb-one">
                <input style={{width:"80%"}} className="form-control w-70 h-90" 
-                  onChange={(e)=>{
-                     data.ownerName=e.target.value
-                     setData({...data})
-                  }}
+                 onChange={(e)=>ChangaData('',e.target.value,'','name')}
                   placeholder="ism"
                />
                </div>
@@ -164,7 +96,10 @@ function SiginUp(){
               </div>
             <div className="number-row ">
               <input className="form-control w-100 h-100 "
-               onChange={(e)=>setPhoneNumber(e.target.value)}
+               onChange={(e)=>{
+                  setPhoneNumber(e.target.value)
+                  ChangaData('',e.target.value,'','number')
+               }}
               type={'text'} placeholder={' (90) 123 45 67 '}/>
             </div>
             
@@ -173,8 +108,7 @@ function SiginUp(){
               <div>
              <select name="viloyat" id="viloyat" required  onChange={(e)=>{
                setRegion(e.target.value)
-                data.city=e.target.value
-                setData({...data}) 
+                ChangaData('',e.target.value,'','city')
               }}>
                 <option value="Toshkent">Toshkent shahri</option>
                 <option value="Toshkentviloyat">Toshkent viloyat</option>
@@ -193,10 +127,7 @@ function SiginUp(){
              </select>
               </div>
               <div  className="text-right">
-             <select name="tuman" id="tuman"  required onChange={(e)=>{
-              data.region=e.target.value
-              setData({...data}) 
-             }}>
+             <select name="tuman" id="tuman"  required onChange={(e)=>ChangaData('',e.target.value,'','region')}>
                {
                   regionData.map(item=>item.typeID===region ? <option key={item.id} value={item.value}>
                       {item.value}
