@@ -11,6 +11,8 @@ import Six from './component/ComponentSix'
 import Seven from './component/ComponentSeven'
 import Eight from './component/ComponentEight'
 import Home from './home/Home'
+import WareHouese from './Omborxona/WareHouse';
+import PhoneApp from './home/PhoneNumber';
 import Message from './Login/message';
 import Layout from './Private/LayOut';
 import SiginUp from './Login/SiginUp';
@@ -387,6 +389,8 @@ function App  (){
        <Routes>
        <Route element={<Layout/>}>
        <Route index path='/' element={<PrivateRoute><Home /></PrivateRoute>}></Route>,
+       <Route index path='/warehouse' element={<PrivateRoute><WareHouese /></PrivateRoute>}></Route>,
+       <Route index path='/phoneNumber' element={<PrivateRoute><PhoneApp /></PrivateRoute>}></Route>,
        <Route path='/home/one' element={<PrivateRoute><One/></PrivateRoute>}></Route>
        <Route path={'/home/Two'} element={<PrivateRoute><Two /></PrivateRoute>}></Route>
        <Route path='/home/Three' element={<PrivateRoute><Three/></PrivateRoute>}></Route>
